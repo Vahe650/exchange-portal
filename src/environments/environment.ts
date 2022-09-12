@@ -7,6 +7,8 @@ export const environment = {
   deployUrl: '',
   name: 'dev',
   production: false,
+  DEFAULT_PAGE_ELEMENT_COUNT: 10,
+
 };
 
 /*

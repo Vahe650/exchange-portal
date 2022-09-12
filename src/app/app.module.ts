@@ -9,11 +9,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ClientPageComponent } from './view/client-page/client-page.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
+    ClientPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatListModule,
     MatIconModule,
     MatToolbarModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
