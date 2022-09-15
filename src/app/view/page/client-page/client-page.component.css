@@ -1,0 +1,23 @@
+
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+span {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.change-audit {
+  float: right;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+

@@ -1,0 +1,50 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/*@import '~material-icons/iconfont/material-icons.css';*/
+@import 'fonts';
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: gainsboro;
+}
+
+h1 {
+  text-align: center;
+}
+
+.error-class {
+  color: red;
+}
+
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: darkslateblue !important;
+}
+
+.mat-datepicker-toggle-active {
+  color: darkslateblue !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: darkslateblue !important;
+}
+.mat-focused .mat-form-field-label {
+  color: darkslateblue !important;
+}
+.mat-stroked-button.mat-primary {
+  color: darkslateblue;
+}
+
+.mat-progress-bar-fill::after {
+  background-color: darkslateblue;
+  color: darkslateblue;
+}
+
+.mat-progress-bar-buffer {
+  background-color: #e9ecef;
+}
+
+.text-center {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

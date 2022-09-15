@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-left-menu',
@@ -8,9 +9,8 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class LeftMenuComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
   }
-
 
   @ViewChild('sidenav') public sidenav: MatSidenav;
   public isExpanded = true;
@@ -33,5 +33,4 @@ export class LeftMenuComponent implements OnInit {
       this.isShowing = false;
     }
   }
-
 }

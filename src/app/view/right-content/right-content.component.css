@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: white;
+  color: darkgray;
+}
+
+.form-container {
+  padding-top: 3em;
+  width: 93%;
+  align-items: flex-end;
+}
+
+.title {
+  float: left;
+  color: darkgray;
+
+}

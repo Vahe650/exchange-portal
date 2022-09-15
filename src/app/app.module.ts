@@ -1,24 +1,38 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {AppComponent} from './app.component';
-import {LeftMenuComponent} from './view/left-menu/left-menu.component';
 import {MatButtonModule} from '@angular/material/button';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { ClientPageComponent } from './view/client-page/client-page.component';
+import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
+import {AppComponent} from './app.component';
+import {ClientPageComponent} from './view/page/client-page/client-page.component';
+import {LeftMenuComponent} from './view/left-menu/left-menu.component';
+import {RightContentComponent} from './view/right-content/right-content.component';
+import {AppRoutingModule} from './app-routing.module';
+import { SettingsPageComponent } from './view/page/settings-page/settings-page.component';
+import { FoundsToAccountPageComponent } from './view/page/founds-to-account-page/founds-to-account-page.component';
+import { RateConfigurationPageComponent } from './view/page/rate-configuration-page/rate-configuration-page.component';
+import { PaymentHistoryPageComponent } from './view/page/payment-history-page/payment-history-page.component';
+import { SupportPageComponent } from './view/page/support-page/support-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
     ClientPageComponent,
+    RightContentComponent,
+    SettingsPageComponent,
+    FoundsToAccountPageComponent,
+    RateConfigurationPageComponent,
+    PaymentHistoryPageComponent,
+    SupportPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +45,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
+    RouterModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

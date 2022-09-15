@@ -1,4 +1,4 @@
-.row.gutterFix{
+gutterFix{
   --bs-gutter-x: 0
 }
 
@@ -10,7 +10,6 @@
 .colMain{
   float: right;
   width: 85%;
-  background: rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   text-align: center;
 }

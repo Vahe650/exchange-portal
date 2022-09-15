@@ -1,106 +1,76 @@
-<!--<mat-toolbar color="primary" class="example-toolbar">-->
-<!--  <button mat-icon-button (click)="isExpanded = !isExpanded">-->
-<!--    <mat-icon>menu</mat-icon>-->
-<!--  </button>-->
-<!--  <h1 class="example-app-name">Nested Menus</h1>-->
-<!--</mat-toolbar>-->
 <mat-sidenav-container class="example-container" autosize>
+
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()"
                (mouseleave)="mouseleave()">
+    <span class="app-name">Hermes</span>
     <mat-nav-list>
       <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[0] = !showSubmenu[0]" class="parent">
         <mat-icon class="menu-button">mark_email_unread</mat-icon>
-        <span class="full-width">Диалоги</span>
+        <span class="full-width">Dialogs</span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu[0]}" *ngIf="isExpanded || isShowing">
           expand_more
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu[0]}" *ngIf="isShowing || isExpanded">
         <mat-list-item>
-          <mat-icon class="menu-button">rectangle</mat-icon>
-
-          <span class="material-symbols-outlined">Все</span>
+          <span class="material-symbols-outlined">All</span>
         </mat-list-item>
         <mat-list-item>
-          <mat-icon class="menu-button">list</mat-icon>
-          <span class="material-symbols-outlined">Только непрочитанные</span>
-
+          <span class="material-symbols-outlined">Unread</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span class="material-symbols-outlined">Closed</span>
         </mat-list-item>
       </div>
-      <mat-list-item class="parent" *ngIf="isExpanded || isShowing">
-        <mat-icon class="menu-button">send</mat-icon>
-        <span class="full-width">Рассылки </span>
+      <mat-list-item class="parent" *ngIf="isExpanded || isShowing"
+                     [routerLinkActive]="['menu-active']"
+                     [routerLink]="['/clients']">
+
+        <mat-icon class="menu-button">people</mat-icon>
+        <span class="full-width" >Clients </span>
+        <mat-icon class="menu-button"></mat-icon>
       </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">filter_alt</mat-icon>
-        <span class="full-width">Автоворонки</span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">filter_alt</mat-icon>
-        <span class="full-width">Чат-боты</span>
+      <mat-list-item *ngIf="isExpanded || isShowing" class="parent"
+                     [routerLinkActive]="['menu-active']"
+                     [routerLink]="['/settings']">
+        <mat-icon class="menu-button">settings_suggest</mat-icon>
+        <span class="full-width">Settings</span>
+        <mat-icon class="menu-button"></mat-icon>
+
       </mat-list-item>
       <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[1] = !showSubmenu[1]" class="parent">
-        <mat-icon class="menu-button">trending_up</mat-icon>
-        <span class="full-width">Инструменты роста</span>
+        <mat-icon class="menu-button">assignment</mat-icon>
+        <span class="full-width">Company Profile </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu[1]}" *ngIf="isExpanded || isShowing">
           expand_more
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu[1]}" *ngIf="isShowing || isExpanded">
-        <mat-list-item>
-          <mat-icon class="menu-button">rectangle</mat-icon>
+        <mat-list-item
+          [routerLinkActive]="['menu-active']"
+          [routerLink]="['/rate-configuration']">
+          <span class="material-symbols-outlined">Rate Configuration</span>
+        </mat-list-item>
+        <mat-list-item
+          [routerLinkActive]="['menu-active']"
+          [routerLink]="['/founds']">
+          <span class="material-symbols-outlined">Adding&nbsp;Funds&nbsp;to&nbsp;Account</span>
+        </mat-list-item>
+        <mat-list-item
+          [routerLinkActive]="['menu-active']"
+          [routerLink]="['/payment-history']">
+          <span class="material-symbols-outlined">Payment History</span>
+        </mat-list-item>
 
-          <span class="material-symbols-outlined">menu 1</span>
-        </mat-list-item>
-        <mat-list-item>
-        </mat-list-item>
       </div>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">bar_chart</mat-icon>
-        <span class="full-width">Аналитика</span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">sms</mat-icon>
-        <span class="full-width">Шаблоны WhatsApp</span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">keyboard</mat-icon>
-        <span class="full-width">Ключевые слова</span>
-      </mat-list-item>
+      <mat-list-item *ngIf="isExpanded || isShowing" class="parent"
+                     [routerLinkActive]="['menu-active']"
+                     [routerLink]="['/support']">
+        <mat-icon class="menu-button">help_outline</mat-icon>
+        <span class="full-width">Support</span>
+        <mat-icon class="menu-button"></mat-icon>
 
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">power</mat-icon>
-        <span class="full-width">Интеграция</span>
       </mat-list-item>
-
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">settings_suggest</mat-icon>
-        <span class="full-width">Настройки </span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">payments</mat-icon>
-        <span class="full-width">Оплата</span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" class="parent">
-        <mat-icon class="menu-button">feed</mat-icon>
-        <span class="full-width">Обучение</span>
-      </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[2] = !showSubmenu[2]" class="parent">
-        <mat-icon class="menu-button">call</mat-icon>
-        <span class="full-width">Контакты </span>
-        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu[2]}" *ngIf="isExpanded || isShowing">
-          expand_more
-        </mat-icon>
-      </mat-list-item>
-      <div class="submenu" [ngClass]="{'expanded' : showSubmenu[2]}" *ngIf="isShowing || isExpanded">
-        <mat-list-item>
-          <mat-icon class="menu-button">rectangle</mat-icon>
-
-          <span class="material-symbols-outlined">menu 1</span>
-        </mat-list-item>
-        <mat-list-item>
-        </mat-list-item>
-      </div>
 
     </mat-nav-list>
   </mat-sidenav>
