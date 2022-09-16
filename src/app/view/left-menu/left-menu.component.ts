@@ -17,6 +17,7 @@ export class LeftMenuComponent implements OnInit {
   public isShowing = false;
   public showSubmenu: boolean[] = [];
   public showSubSubMenu: boolean[] = [];
+  public menuColor: string [] = new Array<string>(10);
 
   public ngOnInit(): void {
 
@@ -31,6 +32,18 @@ export class LeftMenuComponent implements OnInit {
   public mouseleave() {
     if (!this.isExpanded) {
       this.isShowing = false;
+    }
+  }
+
+  public navigateMenu(index) {
+
+    for (let i = 0; i < this.menuColor.length; i++) {
+      if (i === index) {
+        this.menuColor[i] = 'color:white';
+      } else {
+        this.menuColor[i] = '';
+      }
+
     }
   }
 }

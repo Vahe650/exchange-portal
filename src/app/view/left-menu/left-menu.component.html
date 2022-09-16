@@ -4,26 +4,29 @@
                (mouseleave)="mouseleave()">
     <span class="app-name">Hermes</span>
     <mat-nav-list>
-      <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[0] = !showSubmenu[0]" class="parent">
+      <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[0] = !showSubmenu[0]"
+                     [style]="menuColor[0]"
+                     class="parent">
         <mat-icon class="menu-button">mark_email_unread</mat-icon>
         <span class="full-width">Dialogs</span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu[0]}" *ngIf="isExpanded || isShowing">
-          expand_more
+          keyboard_arrow_left
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu[0]}" *ngIf="isShowing || isExpanded">
-        <mat-list-item>
+        <mat-list-item (click)="navigateMenu(0)">
           <span class="material-symbols-outlined">All</span>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item (click)="navigateMenu(0)">
           <span class="material-symbols-outlined">Unread</span>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item (click)="navigateMenu(0)">
           <span class="material-symbols-outlined">Closed</span>
         </mat-list-item>
       </div>
       <mat-list-item class="parent" *ngIf="isExpanded || isShowing"
-                     [routerLinkActive]="['menu-active']"
+                     [style]="menuColor[1]"
+                     (click)="navigateMenu(1)"
                      [routerLink]="['/clients']">
 
         <mat-icon class="menu-button">people</mat-icon>
@@ -31,32 +34,38 @@
         <mat-icon class="menu-button"></mat-icon>
       </mat-list-item>
       <mat-list-item *ngIf="isExpanded || isShowing" class="parent"
-                     [routerLinkActive]="['menu-active']"
+                     [style]="menuColor[2]"
+                     (click)="navigateMenu(2)"
                      [routerLink]="['/settings']">
         <mat-icon class="menu-button">settings_suggest</mat-icon>
         <span class="full-width">Settings</span>
         <mat-icon class="menu-button"></mat-icon>
 
       </mat-list-item>
-      <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[1] = !showSubmenu[1]" class="parent">
+      <mat-list-item *ngIf="isExpanded || isShowing" (click)="showSubmenu[1] = !showSubmenu[1]"
+                     [style]="menuColor[3]"
+                     class="parent">
         <mat-icon class="menu-button">assignment</mat-icon>
         <span class="full-width">Company Profile </span>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu[1]}" *ngIf="isExpanded || isShowing">
-          expand_more
+          keyboard_arrow_left
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu[1]}" *ngIf="isShowing || isExpanded">
         <mat-list-item
+          (click)="navigateMenu(3)"
           [routerLinkActive]="['menu-active']"
           [routerLink]="['/rate-configuration']">
           <span class="material-symbols-outlined">Rate Configuration</span>
         </mat-list-item>
         <mat-list-item
+          (click)="navigateMenu(3)"
           [routerLinkActive]="['menu-active']"
           [routerLink]="['/founds']">
-          <span class="material-symbols-outlined">Adding&nbsp;Funds&nbsp;to&nbsp;Account</span>
+          <span class="material-symbols-outlined">Adding<br>Funds&nbsp;to&nbsp;Account</span>
         </mat-list-item>
         <mat-list-item
+          (click)="navigateMenu(3)"
           [routerLinkActive]="['menu-active']"
           [routerLink]="['/payment-history']">
           <span class="material-symbols-outlined">Payment History</span>
@@ -64,7 +73,8 @@
 
       </div>
       <mat-list-item *ngIf="isExpanded || isShowing" class="parent"
-                     [routerLinkActive]="['menu-active']"
+                     [style]="menuColor[4]"
+                     (click)="navigateMenu(4)"
                      [routerLink]="['/support']">
         <mat-icon class="menu-button">help_outline</mat-icon>
         <span class="full-width">Support</span>
