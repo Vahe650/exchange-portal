@@ -21,6 +21,8 @@ import { FoundsToAccountPageComponent } from './view/page/founds-to-account-page
 import { RateConfigurationPageComponent } from './view/page/rate-configuration-page/rate-configuration-page.component';
 import { PaymentHistoryPageComponent } from './view/page/payment-history-page/payment-history-page.component';
 import { SupportPageComponent } from './view/page/support-page/support-page.component';
+import { DialogPageComponent } from './view/page/dialog-page/dialog-page.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { SupportPageComponent } from './view/page/support-page/support-page.comp
     RateConfigurationPageComponent,
     PaymentHistoryPageComponent,
     SupportPageComponent,
+    DialogPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { SupportPageComponent } from './view/page/support-page/support-page.comp
     MatSortModule,
     RouterModule,
     AppRoutingModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

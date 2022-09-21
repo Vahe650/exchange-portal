@@ -1,5 +1,4 @@
 
-
 table {
   width: 100%;
 }
@@ -20,4 +19,23 @@ span {
   margin-bottom: 1em;
 }
 
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+}
 
+.button-right {
+  background-color: #0e0e28;
+  color: white;
+  margin-bottom: 1em
+}
+
+.right {
+  float: right;
+}
+
+.pr {
+  font-weight: bold;
+  font-size: 15px;
+  padding-right: 2rem;
+}

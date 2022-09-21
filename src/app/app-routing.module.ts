@@ -6,6 +6,7 @@ import {PaymentHistoryPageComponent} from './view/page/payment-history-page/paym
 import {RateConfigurationPageComponent} from './view/page/rate-configuration-page/rate-configuration-page.component';
 import {SettingsPageComponent} from './view/page/settings-page/settings-page.component';
 import {SupportPageComponent} from './view/page/support-page/support-page.component';
+import {DialogPageComponent} from './view/page/dialog-page/dialog-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'clients', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'rate-configuration', component: RateConfigurationPageComponent},
   {path: 'founds', component: FoundsToAccountPageComponent},
   {path: 'support', component: SupportPageComponent},
+  {path: 'dialog', component: DialogPageComponent},
 
 ];
 

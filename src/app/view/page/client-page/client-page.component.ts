@@ -1,4 +1,3 @@
-import {DatePipe} from '@angular/common';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -21,11 +20,10 @@ export class ClientPageComponent implements OnInit {
 
   public displayedColumns: string[] = [
     'clientName',
-    'firstMessageDate',
     'lastMessage',
     'lastMessageDate',
-    'lastOperator',
-    'phone_messenger',
+    'phone',
+    'messenger',
     'tags',
 
   ];
@@ -34,18 +32,20 @@ export class ClientPageComponent implements OnInit {
 
   private client = {
     clientName: 'John smith',
-    firstMessageDate: '2020-12-12',
+    firstMessageDate: new Date(),
     lastMessage: 'Some message',
-    lastMessageDate: '2022-12-12',
+    lastMessageDate: new Date(),
     lastOperator: 'some Operator',
     lastOperatorNumber: '123456',
     messenger: 'send',
     phone: '+987634321',
     tags: '#one,#two',
   };
+  public pageLoading: boolean;
+  public lastRefreshDate: Date = new Date();
+  public disableRefreshButton: boolean;
 
-  constructor(
-  ) {
+  constructor() {
 
   }
 
@@ -62,5 +62,17 @@ export class ClientPageComponent implements OnInit {
 
   public onPaginateChange() {
 
+  }
+
+  public refreshData() {
+    this.pageLoading = true;
+    this.disableRefreshButton = true;
+    setTimeout(() => {
+      this.pageLoading = false;
+      this.lastRefreshDate = new Date();
+    }, 2000);
+    setTimeout(() => {
+      this.disableRefreshButton = false;
+    }, 4000);
   }
 }
