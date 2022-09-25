@@ -16,13 +16,19 @@ import {ClientPageComponent} from './view/page/client-page/client-page.component
 import {LeftMenuComponent} from './view/left-menu/left-menu.component';
 import {RightContentComponent} from './view/right-content/right-content.component';
 import {AppRoutingModule} from './app-routing.module';
-import { SettingsPageComponent } from './view/page/settings-page/settings-page.component';
-import { FoundsToAccountPageComponent } from './view/page/founds-to-account-page/founds-to-account-page.component';
-import { RateConfigurationPageComponent } from './view/page/rate-configuration-page/rate-configuration-page.component';
-import { PaymentHistoryPageComponent } from './view/page/payment-history-page/payment-history-page.component';
-import { SupportPageComponent } from './view/page/support-page/support-page.component';
-import { DialogPageComponent } from './view/page/dialog-page/dialog-page.component';
+import {SettingsPageComponent} from './view/page/settings-page/settings-page.component';
+import {FoundsToAccountPageComponent} from './view/page/founds-to-account-page/founds-to-account-page.component';
+import {RateConfigurationPageComponent} from './view/page/rate-configuration-page/rate-configuration-page.component';
+import {PaymentHistoryPageComponent} from './view/page/payment-history-page/payment-history-page.component';
+import {SupportPageComponent} from './view/page/support-page/support-page.component';
+import {DialogPageComponent} from './view/page/dialog-page/dialog-page.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RouterModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

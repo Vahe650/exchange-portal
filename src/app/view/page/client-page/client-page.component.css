@@ -39,3 +39,18 @@ span {
   font-size: 15px;
   padding-right: 2rem;
 }
+
+::ng-deep .removeMargin div.mat-form-field-wrapper{
+  margin-bottom: -1.35em;
+}
+
+mat-header-cell, .mat-header-cell {
+  padding: 8px 8px 0 0;
+}
+
+.form-width{
+  width: 90%;
+}
+::ng-deep .mat-form-field-infix {
+  width: auto !important;
+}

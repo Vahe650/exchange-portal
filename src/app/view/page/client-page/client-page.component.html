@@ -15,31 +15,65 @@
 
 
   <span class="title" style="padding-top: 2rem;">Clients</span>
-  <table style="background-color: white" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table style="background-color: white" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8"
+         [formGroup]="searchForm">
 
 
     <ng-container matColumnDef="clientName">
       <th mat-header-cell *matHeaderCellDef>
-        <div>
+        <div class="form-width">
           <span mat-sort-header>Name </span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by name" formControlName="clientName"
+                   (input)="filter('clientName',$event.target.value)"
+            >
+            <button [style.color]="searchForm.get('clientName').value ? 'black' : 'white'"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('clientName')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </th>
       <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="lastMessage">
-      <th mat-header-cell *matHeaderCellDef>
-        <div>
+      <th mat-header-cell *matHeaderCellDef style="width: 22% !important;">
+        <div class="form-width">
           <span mat-sort-header>Text of last message</span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by message" formControlName="lastMessage"
+                   (keyup)="filter('lastMessage',$event.target.value)"
+            >
+            <button [style.color]="searchForm.get('lastMessage').value ? 'black' : 'white'"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('lastMessage')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </th>
-      <td mat-cell *matCellDef="let element"> {{element.lastMessage}} </td>
+      <td [matTooltip]="element.lastMessage" mat-cell
+          *matCellDef="let element">{{element.lastMessage.length > 90 ? element.lastMessage.substring(0, 90) + '...' : element.lastMessage}}   </td>
     </ng-container>
 
     <ng-container matColumnDef="lastMessageDate">
       <th mat-header-cell *matHeaderCellDef>
-        <div>
+        <div class="form-width">
           <span mat-sort-header>Date of last message</span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by message date" readonly [matDatepicker]="finalHiringDate"
+                   formControlName="lastMessageDate"
+                   (dateChange)="filter('lastMessageDate',$event.target.value)">
+            <button *ngIf="searchForm.get('lastMessageDate').value"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('lastMessageDate')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+            <mat-datepicker-toggle matSuffix [for]="finalHiringDate"></mat-datepicker-toggle>
+            <mat-datepicker #finalHiringDate></mat-datepicker>
+          </mat-form-field>
         </div>
       </th>
       <td mat-cell *matCellDef="let element"> {{element.lastMessageDate | date:'yyyy:MM:dd hh:mm:ss'}} </td>
@@ -47,8 +81,18 @@
 
     <ng-container matColumnDef="phone">
       <th mat-header-cell *matHeaderCellDef>
-        <div>
+        <div class="form-width">
           <span mat-sort-header>Phone number</span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by phone" formControlName="phone"
+                   (keyup)="filter('phone',$event.target.value)"
+            >
+            <button [style.color]="searchForm.get('phone').value ? 'black' : 'white'"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('phone')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </th>
       <td mat-cell *matCellDef="let element">
@@ -56,9 +100,19 @@
     </ng-container>
 
     <ng-container matColumnDef="messenger">
-      <th mat-header-cell *matHeaderCellDef>
-        <div>
+      <th mat-header-cell *matHeaderCellDef >
+        <div class="form-width">
           <span mat-sort-header>Communication Sources</span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by sources" formControlName="messenger"
+                   (keyup)="filter('messenger',$event.target.value)"
+            >
+            <button [style.color]="searchForm.get('messenger').value ? 'black' : 'white'"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('messenger')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </th>
       <td mat-cell *matCellDef="let element">
@@ -68,9 +122,19 @@
 
 
     <ng-container matColumnDef="tags">
-      <th mat-header-cell *matHeaderCellDef>
-        <div>
+      <th mat-header-cell *matHeaderCellDef >
+        <div class="form-width">
           <span mat-sort-header>Tags</span>
+          <mat-form-field class="removeMargin">
+            <input matInput placeholder="Search by tags" formControlName="tags"
+                   (keyup)="filter('tags',$event.target.value)"
+            >
+            <button [style.color]="searchForm.get('tags').value ? 'black' : 'white'"
+                    mat-button mat-icon-button matSuffix
+                    (click)="resetFieldFilter('tags')">
+              <mat-icon class="menu-button">clear</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
       </th>
       <td mat-cell *matCellDef="let element"> {{element.tags}} </td>

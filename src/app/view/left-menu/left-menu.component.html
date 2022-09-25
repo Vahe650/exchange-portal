@@ -1,4 +1,4 @@
-<mat-sidenav-container class="example-container" autosize>
+<mat-sidenav-container class="example-container menu-mat-bar" autosize >
 
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()"
                (mouseleave)="mouseleave()">
@@ -14,13 +14,19 @@
         </mat-icon>
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu[0]}" *ngIf="isShowing || isExpanded">
-        <mat-list-item (click)="navigateMenu(0)">
+        <mat-list-item (click)="navigateMenu(0)"
+                       [routerLinkActive]="['menu-active']"
+                       [routerLink]="['/dialog/all']">
           <span class="material-symbols-outlined">All</span>
         </mat-list-item>
-        <mat-list-item (click)="navigateMenu(0)">
+        <mat-list-item (click)="navigateMenu(0)"
+                       [routerLinkActive]="['menu-active']"
+                       [routerLink]="['/dialog/unread']">
           <span class="material-symbols-outlined">Unread</span>
         </mat-list-item>
-        <mat-list-item (click)="navigateMenu(0)">
+        <mat-list-item (click)="navigateMenu(0)"
+                       [routerLinkActive]="['menu-active']"
+                       [routerLink]="['/dialog/closed']">
           <span class="material-symbols-outlined">Closed</span>
         </mat-list-item>
       </div>

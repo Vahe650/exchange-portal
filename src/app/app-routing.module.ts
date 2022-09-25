@@ -16,7 +16,9 @@ const routes: Routes = [
   {path: 'rate-configuration', component: RateConfigurationPageComponent},
   {path: 'founds', component: FoundsToAccountPageComponent},
   {path: 'support', component: SupportPageComponent},
-  {path: 'dialog', component: DialogPageComponent},
+  {path: 'dialog/all', component: DialogPageComponent},
+  {path: 'dialog/closed', component: DialogPageComponent},
+  {path: 'dialog/unread', component: DialogPageComponent},
 
 ];
 

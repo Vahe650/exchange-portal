@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -30,17 +31,15 @@ export class ClientPageComponent implements OnInit {
 // Subs
   public dataSource: MatTableDataSource<object>;
 
-  private client = {
-    clientName: 'John smith',
-    firstMessageDate: new Date(),
-    lastMessage: 'Some message',
-    lastMessageDate: new Date(),
-    lastOperator: 'some Operator',
-    lastOperatorNumber: '123456',
-    messenger: 'send',
-    phone: '+987634321',
-    tags: '#one,#two',
-  };
+  public searchForm = new FormGroup({
+    clientName: new FormControl(),
+    lastMessage: new FormControl(),
+    lastMessageDate: new FormControl(),
+    messenger: new FormControl(),
+    phone: new FormControl(),
+    tags: new FormControl(),
+  });
+
   public pageLoading: boolean;
   public lastRefreshDate: Date = new Date();
   public disableRefreshButton: boolean;
@@ -49,22 +48,47 @@ export class ClientPageComponent implements OnInit {
 
   }
 
+  public clients = [];
+
   public ngOnInit(): void {
-    const clients = [];
+
+    this.getClients();
+  }
+
+  public getClients() {
     for (let i = 0; i < 10; i++) {
-      this.client.clientName += i;
-      clients.push(this.client);
+      const client = {
+        clientName: i + 'John smith' + i,
+        firstMessageDate: new Date(),
+        lastMessage: i + 'It is a long established fact that a reader will be di' +
+          'stracted by the readable content of a page when looking at its layout. The p' +
+          'oint of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,' +
+          ' as opposed to using \'Content here, content here\', making it look like readable English. Ma' +
+          'ny desktop publishing packages and web page editors now use Lorem Ipsum as their default model text' +
+          ', and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various vers' +
+          'ions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+        lastMessageDate: new Date(),
+        lastOperator: 'some Operator' + i,
+        lastOperatorNumber: '+' + i + '123456',
+        messenger: 'send',
+        phone: '+' + i + '123456',
+        tags: '#one' + i + ',#two' + i,
+      };
+      this.clients.push(client);
 
     }
-    this.dataSource = new MatTableDataSource<object>(clients);
-    this.totalElementCount = clients.length;
+    this.dataSource = new MatTableDataSource<object>(this.clients);
+    this.totalElementCount = this.clients.length;
+
   }
 
   public onPaginateChange() {
+    this.clients = [];
+    this.getClients();
 
   }
 
-  public refreshData() {
+  public refreshData(): void {
     this.pageLoading = true;
     this.disableRefreshButton = true;
     setTimeout(() => {
@@ -75,4 +99,24 @@ export class ClientPageComponent implements OnInit {
       this.disableRefreshButton = false;
     }, 4000);
   }
+
+  public filter(field: string, value: any) {
+    if (value.length > 1) {
+      this.clients = this.clients.filter((client) => {
+        console.log(client[field]);
+        return client[field].toLowerCase().includes(value.toLowerCase());
+      });
+      this.dataSource = new MatTableDataSource<object>(this.clients);
+      this.totalElementCount = this.clients.length;
+    } else {
+      this.onPaginateChange();
+    }
+
+  }
+
+  public resetFieldFilter(field) {
+    this.searchForm.get(field).reset();
+    this.onPaginateChange();
+  }
+
 }
