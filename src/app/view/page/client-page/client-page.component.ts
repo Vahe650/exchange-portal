@@ -34,7 +34,8 @@ export class ClientPageComponent implements OnInit {
   public searchForm = new FormGroup({
     clientName: new FormControl(),
     lastMessage: new FormControl(),
-    lastMessageDate: new FormControl(),
+    startDate: new FormControl(),
+    endDate: new FormControl(),
     messenger: new FormControl(),
     phone: new FormControl(),
     tags: new FormControl(),

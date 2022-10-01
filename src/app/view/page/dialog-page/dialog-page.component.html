@@ -7,19 +7,19 @@
           <input type="text" placeholder="Search...">
         </div>
       </div>
-      <div *ngFor="let client of clients "
-           (click)="setIndex(client)"
-           [class.message-active]="selectedIndex === client"
+      <div *ngFor="let client of clients; let i = index "
+           (click)="setIndex(i)"
+           [class.message-active]="selectedIndex === i"
            class="discussion">
         <div class="photo"
              style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
-          <div class="online"></div>
+          <div *ngIf="client.isOnline" class="online"></div>
         </div>
         <div class="desc-contact">
-          <p class="name">Megan {{client}}</p>
-          <p class="message">9 pm at the bar if possible 😳</p>
+          <p class="name">{{client.name}}</p>
+          <p class="message">{{client.lastMessage}}</p>
         </div>
-        <div class="timer">12-22-2022 15:33:10</div>
+        <div class="timer">{{client.lastMessageDate}}</div>
       </div>
 
 
@@ -27,7 +27,7 @@
     <section class="chat">
       <div class="header-chat">
         <i class="icon fa fa-user-o" aria-hidden="true"></i>
-        <p class="name">Megan Leib +99889944556</p>
+        <p class="name">{{selectedClient.name + ' ' + selectedClient.surname + ' ' + selectedClient.phone}}</p>
         <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
       </div>
       <div class="messages-chat">
@@ -79,8 +79,8 @@
           <div class="online"></div>
         </div>
         <div class="">
-          <p class="name">Megan Leib</p>
-          <p class="message">9 pm at the bar if possible 😳</p>
+          <p class="name">{{selectedClient.name + ' ' + selectedClient.surname}}</p>
+          <p class="message">{{selectedClient.lastMessage}}</p>
         </div>
         <div class="timer">12 sec</div>
       </div>
